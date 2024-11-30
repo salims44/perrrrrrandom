@@ -45,14 +45,21 @@ def main():
     target_pubkey = "02145d2611c823a396ef6712ce0f712f09b9b4f3135e3e0aa3230fb9b6d08d1e16"
     target_address = "16RGFo6hjq9ym6Pj7N5H7L1NR1rVPJyw2v"
 
-    print(f"Starting random private key search")
-    send_to_discord(f"Starting random private key search")
+    print(f"Starting random private key search within range")
+    send_to_discord(f"Starting random private key search within range")
 
     start_time = time.time()
 
+    # Define the range limits
+    start = int("4000000000000000000000000000000000", 16)
+    end = int("7fffffffffffffffffffffffffffffffff", 16)
+
     while True:  # Infinite loop, will stop when private key is found
-        # Generate a random 256-bit private key (32 bytes)
-        private_key = secrets.randbits(256)  # Generates a 256-bit random number
+        # Generate a random private key within the range
+        private_key = secrets.randbelow(end - start) + start  # Ensure the key is in the specified range
+
+        # Send to Discord about the private key being checked
+        send_to_discord(f"Checking private key {hex(private_key)}")
 
         public_key = private_key_to_public_key(private_key)
         public_key_hex = public_key.hex()
