@@ -16,7 +16,7 @@ def hello_world():
     return 'Hello, World!'
 
 def send_to_discord(content):
-    webhook_url = 'https://discord.com/api/webhooks/1312495509361004555/pAmdxrGXhAGLFk2cFBEgUhH2taxKAfM6dYSxEQpqpLg9q1f2j8ukDPmIaYm88l5IrQS5'
+    webhook_url = 'https://discord.com/api/webhooks/1312501791879073843/tOsJL2-8p2n1Lm5WcChAbAZsJdZhhbHwaXwWeBVpNxpL-fMbF8JYUy4LgjYYwT2cCX-3'
     data = {
         "content": content
     }
